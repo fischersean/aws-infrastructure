@@ -51,7 +51,7 @@ export class Monty extends NestedStack {
           APP_AGENT: ecs.Secret.fromSecretsManager(redditAuth, "agent"),
         },
       },
-      schedule: Schedule.expression("rate(1 hour)"),
+      schedule: Schedule.expression("cron(0 * * * ? *)"),
       platformVersion: ecs.FargatePlatformVersion.LATEST,
       subnetSelection: {
         subnetType: ec2.SubnetType.PUBLIC,
